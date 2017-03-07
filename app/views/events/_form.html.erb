@@ -1,46 +1,51 @@
 <div class="container-fluid">
-  <div class="col-md-3">
+  <div class="row">
+    <div class="col-md-3">
 
-  </div>
+    </div>
+    <center>
+      <div class="col-md-6">
+        <%= form_for(@event) do |f| %>
+          <% if @event.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-  <div class="col-md-6">
-    <%= form_for(@event) do |f| %>
-      <% if @event.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-          <ul>
-          <% @event.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+              <ul>
+              <% @event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
           <% end %>
-          </ul>
-        </div>
-      <% end %>
 
-      <div class="field">
-        <%= f.label :name %><br>
-        <%= f.text_field :name %>
-      </div>
-      <div class="field">
-        <%= f.label :fecha_inicio %><br>
-        <%= f.datetime_select :fecha_inicio %>
-      </div>
-      <div class="field">
-        <%= f.label :fecha_fin %><br>
-        <%= f.datetime_select :fecha_fin %>
-      </div>
-      <div class="field">
-        <%= f.label :descripcion %><br>
-        <%= f.text_field :descripcion %>
-      </div>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
-    <% end %>
+          <div class="field" class="form-group">
+            <strong><%= f.label :name %><br></strong>
+            <%= f.text_field :name, class: 'form-control'%>
+          </div>
+          <div class="field" class="form-group">
+            <strong><%= f.label :fecha_inicio %><br></strong>
+            <%= f.datetime_select :fecha_inicio %>
+          </div>
+          <div class="field" class="form-group">
+            <strong><%= f.label :fecha_fin %><br></strong>
+            <%= f.datetime_select :fecha_fin %>
+          </div>
+          <div class="field" class="form-group">
+            <strong><%= f.label :descripcion , class: 'form-control'%></strong><br>
+            <%= f.text_field :descripcion%>
+          </div>
+          <div class="actions" class="form-group">
+              <%= f.submit "Crear Evento", class: 'btn btn-primary'%>
+          </div>
+        <% end %>
 
+      </div>
+    </center
+
+    <div class="col-md-3">
+
+    </div>
   </div>
 
-  <div class="col-md-3">
 
-  </div>
 </div>
