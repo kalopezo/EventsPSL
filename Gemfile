@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 # Gem for login
 gem 'devise'
+gem 'autoprefixer-rails'
 
 gem 'bootstrap-sass'
 # Use jquery as the JavaScript library

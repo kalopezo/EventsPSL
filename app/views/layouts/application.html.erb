@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>EventsPSL</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Base" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Base" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+      <div id="main-container" class="container-fluid">
+        <div class="row">
+          <div id="sidebar" class="col-xs-1">
+            <!-- sidebar content -->
+          </div>
+          <div id="main-content" class="col-xs-9">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
 
-<%= yield %>
-
-</body>
+    </main>
+  </body>
 </html>
